@@ -7,3 +7,8 @@ authors
 =======
 
 Christophe Maldivi and Eric Petit designed and implemented Latens.
+
+todo
+====
+
+Complete this description!!!
