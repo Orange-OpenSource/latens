@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="latency_text_padding">10dp</dimen>
+    <dimen name="latency_details_margins">15dp</dimen>
+    <dimen name="latency_details_text_size">25sp</dimen>
+
+    <dimen name="progress_bar_margins">40dp</dimen>
+
+    <dimen name="stats_text_size">15sp</dimen>
+    <dimen name="graph_margin">2dp</dimen>
+    <dimen name="graph_drawings_and_touch_stats_margin">15dp</dimen>
+
+</resources>

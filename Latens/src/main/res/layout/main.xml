@@ -1,0 +1,46 @@
+<com.orange.latens.core.view.Layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/latens_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${packageName}.${activityClass}">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/latency_details_margins">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/latency"
+                android:textSize="@dimen/latency_details_text_size"
+                android:layout_marginRight="@dimen/latency_text_padding"/>
+            <TextView
+                android:id="@+id/latens"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/latency_details_text_size"
+                android:background="@drawable/textview_border"
+                android:padding="@dimen/latency_text_padding"/>
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_marginLeft="@dimen/progress_bar_margins"
+            android:layout_marginRight="@dimen/progress_bar_margins"/>
+
+    </LinearLayout>
+
+</com.orange.latens.core.view.Layout>

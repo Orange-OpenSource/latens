@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Latens</string>
+    <string name="title_activity_preferences">Preferences</string>
+    <string name="settings_title">Preferences</string>
+    <string name="latency">Latency</string>
+    <string name="title_activity_latens_graph">Curve</string>
+
+</resources>

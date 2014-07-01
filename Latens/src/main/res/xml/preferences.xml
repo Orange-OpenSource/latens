@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:defaultValue="-1"
+        android:dialogTitle="Radius (mm)"
+        android:key="radius_mm"
+        android:numeric="integer"
+        android:title="Radius" />
+
+    <EditTextPreference
+        android:defaultValue="-1"
+        android:dialogTitle="Revolution period (ms)"
+        android:key="revolution_period_ms"
+        android:numeric="integer"
+        android:title="Revolution period" />
+
+    <EditTextPreference
+        android:defaultValue="-1"
+        android:dialogTitle="Integrator time constant (ms)"
+        android:key="integrator_time_constant_ms"
+        android:numeric="integer"
+        android:title="Integrator time constant" />
+
+    <EditTextPreference
+        android:defaultValue="-1"
+        android:dialogTitle="Analysis duration (ms)"
+        android:key="analysis_duration_ms"
+        android:numeric="integer"
+        android:title="Analysis duration" />
+
+</PreferenceScreen>
