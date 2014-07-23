@@ -8,7 +8,7 @@ The principles used in this tool to estimate latencies are based on the research
 More precisely, we have implemented the Low Overhead (LO) approach, which does not require any additional equipment (such as an external calibrated camera) in addition of the touch device. In this approach, the user is asked to precisely follow with his finger a cursor that moves along a circular trajectory, at constant speed. In LO method the latency is computed at each display refresh, using the most recent touch event. The event provides the position of the finger which is converted into polar coordinates yielding the angle Ac. As this event was received while the display was showing the prescription at an angle of Ap, the latency estimate is given by : L = (Ap - Ac) / W
 , where W is the angular speed. 
 
-Our implementation is a bit different based on the use of the theorical model of the cursor movement in the form of the angular function Ath(t). Thus, at each touch event we compute Ath(t) and the angle Ac(t) corresponding to the finger position. The difference between the two is divided by the angular speed to get the instantaneous latency. We then use an IIR filter estimator to extract an average estimate of the latency over time.
+Our implementation is a bit different based on the use of the theorical model of the cursor movement in the form of the angular function Ath(t). Thus, at each touch event we compute Ath(t) and we extract the angle Ac(t) corresponding to the current finger position. The difference between the two is divided by the angular speed to get the instantaneous latency. We then use an IIR filter estimator to yield, over time, an average estimate of the latency.
 
 
 Authors
