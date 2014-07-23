@@ -3,7 +3,7 @@ latens
 
 Latens is an android application, used to measure the User Interface latency.
 
-It was inspired by the work of François Bérard and Renaud Blanch in the following research publication: http://tripet.imag.fr/publs/2013/ITS13_Berard_LatencyEstimators.pdf
+It is based on the work of François Bérard and Renaud Blanch (from LIG, University of Grenoble) in the following research publication: http://tripet.imag.fr/publs/2013/ITS13_Berard_LatencyEstimators.pdf
 
 authors
 =======
