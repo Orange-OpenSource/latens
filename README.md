@@ -16,7 +16,8 @@ Our method can be suited to different devices of various form factors and can ta
 Authors
 =======
 
-Christophe Maldivi and Eric Petit designed and implemented Latens.
+Christophe Maldivi and Eric Petit designed and implemented Latens. Christophe Maldivi is senior developer, Eric Petit is researcher in gestural interaction.
+
 
 Feel free to contact the authors for any question related to this application and its purpose.
 
