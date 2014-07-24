@@ -10,6 +10,8 @@ More precisely, we have implemented the Low Overhead (LO) approach, which does n
 
 Our implementation is a bit different based on the use of a theorical model of the cursor movement in the form of the angular function Ath(t), combined with the use of a timer that triggers the update of the cursor's position at a frequency of 100 Hz, independently of the refresh period and of the touch event capturing. Thus, at each touch event we compute Ath(t) and we extract the angle Ac(t) corresponding to the current finger position provided with a delay. The difference between the two is divided by the angular speed to get the instantaneous latency. We then use a linear filter to yield, over time, an average estimate of the latency.
 
+Our method can be suited to different devices of various form factors and can take into account user's preferences. Its parameters are the following: Radius, Revolution period, Integrator time constant, Analysis duration.
+
 
 Authors
 =======
