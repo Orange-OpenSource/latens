@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'robolectric'
 
 android {
     compileSdkVersion 19
@@ -9,6 +10,8 @@ android {
         targetSdkVersion 19
         versionCode Integer.parseInt(appVersionCode)
         versionName appVersion
+        
+        testInstrumentationRunner "com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"
     }
     buildTypes {
         release {
@@ -16,19 +19,36 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+    sourceSets {
+        androidTest {
+            setRoot('src/test')
+        }
+    }
+}
+
+robolectric {
+    include '**/*Test.class'
 }
 
 dependencies {
     compile files('libs/achartengine-1.1.0.jar')
+    androidTestCompile 'junit:junit:4.11'
+    androidTestCompile 'org.robolectric:robolectric:2.3'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
 }
 
 buildscript {
     repositories {
         mavenCentral()
+        mavenLocal()
     }
-
     dependencies {
         classpath 'com.android.tools.build:gradle:0.12.+'
+        classpath 'org.robolectric:robolectric-gradle-plugin:0.12.+'
     }
 }
 
