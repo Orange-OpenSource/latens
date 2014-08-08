@@ -2,6 +2,12 @@ apply plugin: 'com.android.application'
 apply plugin: 'robolectric'
 apply plugin: 'jacoco'
 
+dependencies {
+    compile files('libs/achartengine-1.1.0.jar')
+    androidTestCompile "junit:junit:${project.ext.junitVersion}"
+    androidTestCompile "org.robolectric:robolectric:${project.ext.robolectricVersion}"
+}
+
 android {
     compileSdkVersion Integer.parseInt(appCompileSdkVersion)
     buildToolsVersion appBuildToolsVersion
@@ -32,18 +38,17 @@ robolectric {
 }
 
 jacoco {
-    toolVersion = "0.7.1.201405082137"
+    toolVersion = jacocoToolVersion
 }
 
 def coverageSourceDirs = [
-        'src/main/java'
+    'src/main/java'
 ]
 
 task jacocoTestReport(type: JacocoReport, dependsOn: "testDebug") {
     group = "Reporting"
     description = "Generate Jacoco coverage reports after running tests."
     reports {
-        xml.enabled = true // coveralls plugin depends on xml format report
         html.enabled = true
     }
     classDirectories = fileTree(
@@ -53,26 +58,6 @@ task jacocoTestReport(type: JacocoReport, dependsOn: "testDebug") {
             ])
     sourceDirectories = files(coverageSourceDirs)
     executionData = files('build/jacoco/testDebug.exec')
-    // Bit hacky but fixes https://code.google.com/p/android/issues/detail?id=69174.
-    // We iterate through the compiled .class tree and rename $$ to $.
-    doFirst {
-        new File('build/intermediates/classes/').eachFileRecurse { file ->
-            if (file.name.contains('$$')) {
-                file.renameTo(file.path.replace('$$', '$'))
-            }
-        }
-    }
-    afterEvaluate {
-        // just clean up coveralls dashboard, following reports are not of interest
-        testDebug.reports.junitXml.enabled = false
-    }
-}
-
-
-dependencies {
-    compile files('libs/achartengine-1.1.0.jar')
-    androidTestCompile 'junit:junit:4.11'
-    androidTestCompile 'org.robolectric:robolectric:2.3'
 }
 
 repositories {
@@ -86,8 +71,8 @@ buildscript {
         mavenLocal()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.12.+'
-        classpath 'org.robolectric:robolectric-gradle-plugin:0.12.+'
+        classpath "com.android.tools.build:gradle:${project.ext.gradleAndroidPluginVersion}"
+        classpath "org.robolectric:robolectric-gradle-plugin:${project.ext.gradleRobolectricPluginVersion}"
     }
 }
 
