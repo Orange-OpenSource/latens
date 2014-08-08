@@ -1,16 +1,17 @@
 apply plugin: 'com.android.application'
 apply plugin: 'robolectric'
+apply plugin: 'jacoco'
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "20"
+    compileSdkVersion Integer.parseInt(appCompileSdkVersion)
+    buildToolsVersion appBuildToolsVersion
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 19
+        minSdkVersion Integer.parseInt(appMinSdkVersion)
+        targetSdkVersion Integer.parseInt(appTargetSdkVersion)
         versionCode Integer.parseInt(appVersionCode)
         versionName appVersion
-        
+
         testInstrumentationRunner "com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"
     }
     buildTypes {
@@ -29,6 +30,44 @@ android {
 robolectric {
     include '**/*Test.class'
 }
+
+jacoco {
+    toolVersion = "0.7.1.201405082137"
+}
+
+def coverageSourceDirs = [
+        'src/main/java'
+]
+
+task jacocoTestReport(type: JacocoReport, dependsOn: "testDebug") {
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports after running tests."
+    reports {
+        xml.enabled = true // coveralls plugin depends on xml format report
+        html.enabled = true
+    }
+    classDirectories = fileTree(
+            dir: './build/intermediates/classes/debug',
+            excludes: ['com/orange/latens/R*.class',
+                       'com/orange/latens/BuildConfig.class'
+            ])
+    sourceDirectories = files(coverageSourceDirs)
+    executionData = files('build/jacoco/testDebug.exec')
+    // Bit hacky but fixes https://code.google.com/p/android/issues/detail?id=69174.
+    // We iterate through the compiled .class tree and rename $$ to $.
+    doFirst {
+        new File('build/intermediates/classes/').eachFileRecurse { file ->
+            if (file.name.contains('$$')) {
+                file.renameTo(file.path.replace('$$', '$'))
+            }
+        }
+    }
+    afterEvaluate {
+        // just clean up coveralls dashboard, following reports are not of interest
+        testDebug.reports.junitXml.enabled = false
+    }
+}
+
 
 dependencies {
     compile files('libs/achartengine-1.1.0.jar')

@@ -12,8 +12,18 @@ import org.robolectric.annotation.Config;
 public class LatensPointTest {
 
   @Test
-  public void shouldTest() {
-    Assert.assertTrue(true);
+  public void shouldInitAndHaveGettersReturningCorrectValues() {
+    // given
+    float latensMs = 1234.5678f;
+    int dateMs = 123456789;
+
+    // do
+    LatensPoint latensPoint = new LatensPoint(latensMs, dateMs);
+
+    // then
+    float epsilon = 0;
+    Assert.assertEquals(latensMs, latensPoint.getLatensMs(), epsilon);
+    Assert.assertEquals(dateMs, latensPoint.getDateMs());
   }
 
 }
