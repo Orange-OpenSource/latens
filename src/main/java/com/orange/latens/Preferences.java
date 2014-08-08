@@ -30,7 +30,7 @@ public class Preferences {
   public static void setRevolutionPeriod(Context ctx, int revolutionPeriod) {
     Editor editor = getPreferences(ctx).edit();
     editor.putString(KEY_REVOLUTION_PERIOD_MS, Integer.toString(revolutionPeriod));
-    editor.commit();
+    editor.apply();
   }
 
   private static SharedPreferences getPreferences(Context ctx) {
@@ -50,7 +50,7 @@ public class Preferences {
   public static void setTimeConstantMs(Context ctx, long timeConstantMs) {
     Editor editor = getPreferences(ctx).edit();
     editor.putString(KEY_TIME_CONSTANT_MS, Long.toString(timeConstantMs));
-    editor.commit();
+    editor.apply();
   }
 
   public static float getTouchMeanPeriodMs(Context ctx) {
@@ -66,7 +66,7 @@ public class Preferences {
   public static void setTouchMeanPeriodMs(Context ctx, float meanPeriod) {
     Editor editor = getPreferences(ctx).edit();
     editor.putString(KEY_TOUCH_MEAN_PERIOD_MS, Float.toString(meanPeriod));
-    editor.commit();
+    editor.apply();
   }
 
   public static long getAnalysisDurationMs(Context ctx) {
@@ -82,7 +82,7 @@ public class Preferences {
   public static void setAnalysisDurationMs(Context ctx, long analysisDuration) {
     Editor editor = getPreferences(ctx).edit();
     editor.putString(KEY_ANALYSIS_DURATION_MS, Long.toString(analysisDuration));
-    editor.commit();
+    editor.apply();
   }
 
   public static int getRadiusMm(Context ctx, int maxValueMm) {
@@ -97,6 +97,6 @@ public class Preferences {
   public static void setRadiusMm(Context ctx, int radiusMm) {
     Editor editor = getPreferences(ctx).edit();
     editor.putString(KEY_RADIUS_MM, Long.toString(radiusMm));
-    editor.commit();
+    editor.apply();
   }
 }
