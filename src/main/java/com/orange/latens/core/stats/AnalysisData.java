@@ -26,11 +26,12 @@ public class AnalysisData {
     drawingEvents.add(date);
   }
 
-    void addTouchEventForStats(long date, long elapsed, float latensN) {
+  void addTouchEventForStats(long date, long elapsed, float latensN) {
     touchEvents.add(date);
     latencies.add(new LatensPoint(latensN, elapsed));
   }
 
+  // not tested
   void updateTouchMeanPeriod(Context ctx) {
     TimeStatSummary stats = new TimeStatSummary(touchEvents);
     Preferences.setTouchMeanPeriodMs(ctx, stats.getMeanPeriod());
