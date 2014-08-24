@@ -4,25 +4,17 @@ import android.content.Context;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor(suppressConstructorProperties = true)
 public class AndroidMetrics {
   private static final int MICROMETERS_PER_INCH = 25400;
 
   private final float ydpi;
   private final int   widthPixels;
   private final int   heightPixels;
-
-  private AndroidMetrics(float ydpi, int widthPixels, int heightPixels) {
-    this.ydpi         = ydpi;
-    this.widthPixels  = widthPixels;
-    this.heightPixels = heightPixels;
-  }
-
-  public int getWidthPixels() {
-    return widthPixels;
-  }
-  public int getHeightPixels() {
-    return heightPixels;
-  }
 
 
   int getMicrometersPerPixel() {

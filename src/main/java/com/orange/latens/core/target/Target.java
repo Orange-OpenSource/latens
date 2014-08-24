@@ -10,20 +10,25 @@ import com.orange.latens.core.Constants;
 import com.orange.latens.core.view.AndroidMetrics;
 import com.orange.latens.core.view.Layout;
 
+import lombok.Getter;
+
 public class Target implements View.OnLayoutChangeListener {
 
   private final Context ctx;
   private final Layout layout;
   private final AndroidMetrics metrics;
-  private final Point center = new Point();
-  private final Point position = new Point();
 
+  @Getter
+  private final Point position = new Point();
+  @Getter
+  private final Point center = new Point();
 
   private int revolutionPeriodMs;
-
   private int targetDiameterPx;
   private int maxRadiusMm;
   private int maxRadiusPixels;
+
+  @Getter
   private int radiusPixels;
 
 
@@ -115,10 +120,6 @@ public class Target implements View.OnLayoutChangeListener {
     return SystemClock.uptimeMillis();
   }
 
-  public Point getPosition() {
-    return position;
-  }
-
   public int getPositionLatens(Point latePosition) {
     updatePosition();
     double dTheta = getDeltaTheta(latePosition);
@@ -143,12 +144,6 @@ public class Target implements View.OnLayoutChangeListener {
     return (int)(revolutionPeriodMs * dTheta / (2 * Math.PI));
   }
 
-  public Point getCenter() {
-    return center;
-  }
-  public int getRadiusPixels() {
-    return radiusPixels;
-  }
   public int getTargetRadiusPixels() {
     return targetDiameterPx/2;
   }

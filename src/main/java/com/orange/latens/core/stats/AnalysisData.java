@@ -7,6 +7,9 @@ import com.orange.latens.Preferences;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.Getter;
+
+@Getter
 public class AnalysisData {
 
   private final List<Long> drawingEvents = new ArrayList<Long>();
@@ -31,17 +34,5 @@ public class AnalysisData {
   void updateTouchMeanPeriod(Context ctx) {
     TimeStatSummary stats = new TimeStatSummary(touchEvents);
     Preferences.setTouchMeanPeriodMs(ctx, stats.getMeanPeriod());
-  }
-
-  public List<LatensPoint> getLatencies() {
-    return latencies;
-  }
-
-  public List<Long> getDrawingEvents() {
-    return drawingEvents;
-  }
-
-  public List<Long> getTouchEvents() {
-    return touchEvents;
   }
 }

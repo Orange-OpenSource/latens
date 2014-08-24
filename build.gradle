@@ -4,6 +4,9 @@ apply plugin: 'jacoco'
 
 dependencies {
     compile files('libs/achartengine-1.1.0.jar')
+
+    provided "org.projectlombok:lombok:${project.ext.lombokVersion}"
+
     androidTestCompile "junit:junit:${project.ext.junitVersion}"
     androidTestCompile "org.robolectric:robolectric:${project.ext.robolectricVersion}"
 }
@@ -29,6 +32,9 @@ android {
         androidTest {
             setRoot('src/test')
         }
+    }
+    lintOptions {
+        abortOnError false
     }
 }
 

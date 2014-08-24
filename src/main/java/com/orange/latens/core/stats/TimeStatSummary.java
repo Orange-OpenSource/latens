@@ -2,8 +2,10 @@ package com.orange.latens.core.stats;
 
 import java.util.List;
 
-public class TimeStatSummary {
+import lombok.Getter;
 
+@Getter
+public class TimeStatSummary {
   private float meanPeriod;
   private long minPeriod;
   private long maxPeriod;
@@ -47,20 +49,7 @@ public class TimeStatSummary {
     standardDeviation = (int) Math.sqrt(sum2/(events.size()-1));
   }
 
-
   public long getMeanFrequency() {
     return meanPeriod == 0 ? 0 : (long) (1000 / meanPeriod);
-  }
-  public float getMeanPeriod() {
-    return meanPeriod;
-  }
-  public long getMinPeriod() {
-    return minPeriod;
-  }
-  public long getMaxPeriod() {
-    return maxPeriod;
-  }
-  public long getStandardDeviation() {
-    return standardDeviation;
   }
 }
