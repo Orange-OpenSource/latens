@@ -8,6 +8,8 @@ dependencies {
     provided "org.projectlombok:lombok:${project.ext.lombokVersion}"
 
     androidTestCompile "junit:junit:${project.ext.junitVersion}"
+    androidTestCompile "org.powermock:powermock-module-junit4:${project.ext.powermockVersion}"
+    androidTestCompile "org.powermock:powermock-api-mockito:${project.ext.powermockVersion}"
     androidTestCompile "org.robolectric:robolectric:${project.ext.robolectricVersion}"
 }
 
