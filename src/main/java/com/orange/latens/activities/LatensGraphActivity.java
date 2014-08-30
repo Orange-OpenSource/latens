@@ -29,6 +29,8 @@ public class LatensGraphActivity extends Activity {
 
   private static final String LTAG = LatensGraphActivity.class.getSimpleName();
 
+  private final Preferences preferences = new Preferences();
+
   private AnalysisData analysisData;
 
   @Override
@@ -101,7 +103,7 @@ public class LatensGraphActivity extends Activity {
     Log.d(LTAG, String.format("drawings per sec: %d (sd %d, m %d M %d)\ntouch events per sec: %d (sd %d, m %d, M %d Tc %f)",
             dStats.getMeanFrequency(), dStats.getStandardDeviation(), dStats.getMinPeriod(), dStats.getMaxPeriod(),
             tStats.getMeanFrequency(), tStats.getStandardDeviation(), tStats.getMinPeriod(), tStats.getMaxPeriod(),
-            Preferences.getTouchMeanPeriodMs(this)));
+            preferences.getTouchMeanPeriodMs(this)));
 
     getDrawingAndTouchStatsView().setText(String.format("Drawing Frequency: %d Hz\nTouch events Frequency: %d Hz\nEstimated latency: %d ms", dStats.getMeanFrequency(), tStats.getMeanFrequency(), getLastLatency()));
   }

@@ -37,7 +37,7 @@ public class Preferences {
     return ctx.getSharedPreferences(DOMAIN, Context.MODE_PRIVATE);
   }
 
-  public static long getTimeConstantMs(Context ctx) {
+  public long getTimeConstantMs(Context ctx) {
     String stringVal = getPreferences(ctx).getString(KEY_TIME_CONSTANT_MS, "-1");
     long timeConstantMs = Long.parseLong(stringVal);
     if (timeConstantMs <= 0) {
@@ -53,7 +53,7 @@ public class Preferences {
     editor.apply();
   }
 
-  public static float getTouchMeanPeriodMs(Context ctx) {
+  public float getTouchMeanPeriodMs(Context ctx) {
     String stringVal = getPreferences(ctx).getString(KEY_TOUCH_MEAN_PERIOD_MS, "-1");
     float meanPeriod = Float.parseFloat(stringVal);
     if (meanPeriod <= 0) {
@@ -69,7 +69,7 @@ public class Preferences {
     editor.apply();
   }
 
-  public static long getAnalysisDurationMs(Context ctx) {
+  public long getAnalysisDurationMs(Context ctx) {
     String stringVal = getPreferences(ctx).getString(KEY_ANALYSIS_DURATION_MS, "-1");
     long analysisDuration = Long.parseLong(stringVal);
     if (analysisDuration <= 0) {

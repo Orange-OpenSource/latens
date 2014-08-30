@@ -19,6 +19,7 @@ public class LatensStats {
   private final TextView textView;
   private final ProgressBar progressBar;
   private final AnalysisData analysisData = new AnalysisData();
+  private final Preferences preferences = new Preferences();
 
   private static SoftReference<AnalysisData> softReferenceAnalysisData;
 
@@ -57,7 +58,7 @@ public class LatensStats {
 
   @VisibleForTesting
   void refreshAnalysisDuration() {
-    analysisDuration = Preferences.getAnalysisDurationMs(ctx);
+    analysisDuration = preferences.getAnalysisDurationMs(ctx);
   }
 
   public void onPress() {
@@ -86,7 +87,9 @@ public class LatensStats {
 
   @VisibleForTesting
   float getBeta() {
-    return (float) Math.exp( - getTouchMeanPeriodMs() / getTimeConstantMs() );
+    float touchMeanPeriodMs = preferences.getTouchMeanPeriodMs(ctx);
+    long timeConstantMs = preferences.getTimeConstantMs(ctx);
+    return (float) Math.exp( - touchMeanPeriodMs / timeConstantMs );
   }
 
   public void addDrawingEventForStats() {
@@ -141,16 +144,6 @@ public class LatensStats {
   void doStatViewUpdate() {
     Log.d(this.getClass().getSimpleName(), String.format("%f ms (beta = %f)", latensN, beta));
     textView.setText(String.format("%d ms", (int)latensN));
-  }
-
-  @VisibleForTesting
-  float getTouchMeanPeriodMs() {
-    return Preferences.getTouchMeanPeriodMs(ctx);
-  }
-
-  @VisibleForTesting
-  long getTimeConstantMs() {
-    return Preferences.getTimeConstantMs(ctx);
   }
 
   // not tested
