@@ -47,7 +47,8 @@ public class LatensStats {
     }
   }
 
-  private void initAnalysisDataSoftReference() {
+  @VisibleForTesting
+  void initAnalysisDataSoftReference() {
     softReferenceAnalysisData = new SoftReference<AnalysisData>(analysisData);
   }
 
@@ -55,7 +56,8 @@ public class LatensStats {
     refreshAnalysisDuration();
   }
 
-  private void refreshAnalysisDuration() {
+  @VisibleForTesting
+  void refreshAnalysisDuration() {
     analysisDuration = Preferences.getAnalysisDurationMs(ctx);
   }
 
@@ -77,12 +79,14 @@ public class LatensStats {
     setProgressBar(0);
   }
 
-  private void setProgressBar(long progress) {
+  @VisibleForTesting
+  void setProgressBar(long progress) {
     progressBar.setProgress((int)progress);
     progressBar.setMax((int)analysisDuration);
   }
 
-  private float getBeta() {
+  @VisibleForTesting
+  float getBeta() {
     return (float) Math.exp( - getTouchMeanPeriodMs() / getTimeConstantMs() );
   }
 
@@ -142,11 +146,14 @@ public class LatensStats {
     return Preferences.getTimeConstantMs(ctx);
   }
 
-  private long getDate() {
+  // not tested
+  @VisibleForTesting
+  long getDate() {
     return SystemClock.uptimeMillis();
   }
 
-  private long getElapsedTime() {
+  @VisibleForTesting
+  long getElapsedTime() {
     return getDate() - analysisStartDate;
   }
 }
