@@ -1,16 +1,15 @@
 package com.orange.latens.core.stats;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.SystemClock;
 import android.util.Log;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.common.annotations.VisibleForTesting;
-import com.orange.latens.activities.LatensGraphActivity;
-import com.orange.latens.preferences.Preferences;
+import com.orange.latens.activities.LatensActivity;
 import com.orange.latens.core.Constants;
+import com.orange.latens.preferences.Preferences;
 
 import java.lang.ref.SoftReference;
 
@@ -128,7 +127,7 @@ public class LatensStats {
   void analysisFinished() {
     analysisFinished = true;
     analysisData.updateTouchMeanPeriod(ctx);
-    LatensStats.showResults(ctx);
+    LatensActivity.showResults(ctx);
   }
 
   @VisibleForTesting
@@ -138,13 +137,10 @@ public class LatensStats {
       doStatViewUpdate();
     }
   }
-  private void doStatViewUpdate() {
+  @VisibleForTesting
+  void doStatViewUpdate() {
     Log.d(this.getClass().getSimpleName(), String.format("%f ms (beta = %f)", latensN, beta));
     textView.setText(String.format("%d ms", (int)latensN));
-  }
-
-  public static void showResults(Context ctx) {
-    ctx.startActivity(new Intent(ctx, LatensGraphActivity.class));
   }
 
   @VisibleForTesting

@@ -1,6 +1,7 @@
 package com.orange.latens.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,7 +10,6 @@ import android.view.MenuItem;
 
 import com.orange.latens.R;
 import com.orange.latens.core.Controller;
-import com.orange.latens.core.stats.LatensStats;
 import com.orange.latens.core.view.Layout;
 
 public class LatensActivity extends Activity {
@@ -48,7 +48,7 @@ public class LatensActivity extends Activity {
       launchSettings();
       return true;
     case R.id.menu_graph:
-      LatensStats.showResults(this);
+      showResults(this);
       return true;
     default:
       return super.onOptionsItemSelected(menuItem);
@@ -57,5 +57,9 @@ public class LatensActivity extends Activity {
 
   private void launchSettings() {
     startActivity(new Intent(this, PreferencesActivity.class));
+  }
+
+  public static void showResults(Context ctx) {
+    ctx.startActivity(new Intent(ctx, LatensGraphActivity.class));
   }
 }
