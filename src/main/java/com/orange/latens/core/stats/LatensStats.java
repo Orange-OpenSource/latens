@@ -138,11 +138,13 @@ public class LatensStats {
     ctx.startActivity(new Intent(ctx, LatensGraphActivity.class));
   }
 
-  private float getTouchMeanPeriodMs() {
+  @VisibleForTesting
+  float getTouchMeanPeriodMs() {
     return Preferences.getTouchMeanPeriodMs(ctx);
   }
 
-  private long getTimeConstantMs() {
+  @VisibleForTesting
+  long getTimeConstantMs() {
     return Preferences.getTimeConstantMs(ctx);
   }
 
