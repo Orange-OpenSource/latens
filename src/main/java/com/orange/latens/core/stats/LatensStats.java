@@ -101,7 +101,8 @@ public class LatensStats {
       doAdd(latens);
     }
   }
-  private void doAdd(int latens) {
+  @VisibleForTesting
+  void doAdd(int latens) {
     long date = getDate();
     long elapsed = getElapsedTime();
     addToFilter(latens);
