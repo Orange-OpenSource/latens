@@ -28,6 +28,20 @@ public class TimeStatSummaryFunctionalTest {
     Assert.assertEquals(4, timeStatSummary.getStandardDeviation());
   }
 
+  @Test
+  public void shouldDoNothingWithoutEvents() {
+    // given
+    List<Long> events = new ArrayList<Long>();
+    // do
+    TimeStatSummary timeStatSummary = new TimeStatSummary(events);
+    // then
+    Assert.assertEquals(0, timeStatSummary.getMaxPeriod());
+    Assert.assertEquals(0  , timeStatSummary.getMeanFrequency());
+    Assert.assertEquals(0, timeStatSummary.getMeanPeriod(), 0);
+    Assert.assertEquals(0, timeStatSummary.getMinPeriod());
+    Assert.assertEquals(0, timeStatSummary.getStandardDeviation());
+  }
+
   private void fillEvents(List<Long> events) {
     long date = 0;
     for (int i = 0; i < 10; i++) {

@@ -63,7 +63,7 @@ public class Preferences {
     return meanPeriod;
   }
 
-  public static void setTouchMeanPeriodMs(Context ctx, float meanPeriod) {
+  public void setTouchMeanPeriodMs(Context ctx, float meanPeriod) {
     Editor editor = getPreferences(ctx).edit();
     editor.putString(KEY_TOUCH_MEAN_PERIOD_MS, Float.toString(meanPeriod));
     editor.apply();
