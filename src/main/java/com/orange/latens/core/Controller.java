@@ -24,8 +24,6 @@ public class Controller implements TargetUpdateListener {
   private Layout layout;
   private LatensStats latensStats;
 
-
-
   public Controller(Layout layout) {
     init(layout);
   }
