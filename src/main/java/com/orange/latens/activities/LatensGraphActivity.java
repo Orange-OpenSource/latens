@@ -1,4 +1,4 @@
-package com.orange.latens;
+package com.orange.latens.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
+import com.orange.latens.preferences.Preferences;
+import com.orange.latens.R;
 import com.orange.latens.core.stats.AnalysisData;
 import com.orange.latens.core.stats.LatensPoint;
 import com.orange.latens.core.stats.LatensStats;

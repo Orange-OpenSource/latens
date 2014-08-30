@@ -5,7 +5,7 @@ import android.graphics.Point;
 import android.os.SystemClock;
 import android.view.View;
 
-import com.orange.latens.Preferences;
+import com.orange.latens.preferences.Preferences;
 import com.orange.latens.core.Constants;
 import com.orange.latens.core.view.AndroidMetrics;
 import com.orange.latens.core.view.Layout;

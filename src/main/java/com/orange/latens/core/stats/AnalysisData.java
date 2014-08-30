@@ -2,7 +2,7 @@ package com.orange.latens.core.stats;
 
 import android.content.Context;
 
-import com.orange.latens.Preferences;
+import com.orange.latens.preferences.Preferences;
 
 import java.util.ArrayList;
 import java.util.List;

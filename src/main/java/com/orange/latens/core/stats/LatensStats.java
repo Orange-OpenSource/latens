@@ -8,8 +8,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.common.annotations.VisibleForTesting;
-import com.orange.latens.LatensGraphActivity;
-import com.orange.latens.Preferences;
+import com.orange.latens.activities.LatensGraphActivity;
+import com.orange.latens.preferences.Preferences;
 import com.orange.latens.core.Constants;
 
 import java.lang.ref.SoftReference;

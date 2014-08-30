@@ -1,4 +1,4 @@
-package com.orange.latens;
+package com.orange.latens.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.orange.latens.R;
 import com.orange.latens.core.Controller;
 import com.orange.latens.core.stats.LatensStats;
 import com.orange.latens.core.view.Layout;

@@ -1,4 +1,4 @@
-package com.orange.latens;
+package com.orange.latens.preferences;
 
 import android.content.Context;
 import android.content.SharedPreferences;

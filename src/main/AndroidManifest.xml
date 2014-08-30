@@ -9,7 +9,7 @@
         android:theme="@style/AppTheme"
         android:supportsRtl="false" >
         <activity
-            android:name=".LatensActivity"
+            android:name=".activities.LatensActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,17 +18,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".PreferencesActivity"
+            android:name=".activities.PreferencesActivity"
             android:label="@string/title_activity_preferences"
-            android:parentActivityName=".LatensActivity" >
+            android:parentActivityName=".activities.LatensActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="LatensActivity" />
         </activity>
         <activity
-            android:name=".LatensGraphActivity"
+            android:name=".activities.LatensGraphActivity"
             android:label="@string/title_activity_latens_graph"
-            android:parentActivityName=".LatensActivity" >
+            android:parentActivityName=".activities.LatensActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="LatensActivity" />
