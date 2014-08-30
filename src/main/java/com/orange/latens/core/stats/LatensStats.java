@@ -111,20 +111,28 @@ public class LatensStats {
     handleStatViewUpdate();
   }
 
-  private void addToFilter(int latens) {
+  @VisibleForTesting
+  void addToFilter(int latens) {
     latensN = beta * latensN + (1-beta) * latens;
   }
 
-  private void updateAnalysisFinished(long elapsed) {
+  @VisibleForTesting
+  void updateAnalysisFinished(long elapsed) {
     if (elapsed > analysisDuration) {
-      analysisFinished = true;
-      analysisData.updateTouchMeanPeriod(ctx);
-      showResults(ctx);
+      analysisFinished();
     }
     setProgressBar(elapsed);
   }
 
-  private void handleStatViewUpdate() {
+  @VisibleForTesting
+  void analysisFinished() {
+    analysisFinished = true;
+    analysisData.updateTouchMeanPeriod(ctx);
+    LatensStats.showResults(ctx);
+  }
+
+  @VisibleForTesting
+  void handleStatViewUpdate() {
     long dt = getDate() - lastViewUpdate;
     if (dt > Constants.LATENS_VIEW_UPDATE_PERIOD_MS) {
       doStatViewUpdate();
