@@ -7,6 +7,7 @@ import android.util.Log;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.orange.latens.LatensGraphActivity;
 import com.orange.latens.Preferences;
 import com.orange.latens.core.Constants;
@@ -62,7 +63,8 @@ public class LatensStats {
     initAnalysis();
   }
 
-  private void initAnalysis() {
+  @VisibleForTesting
+  void initAnalysis() {
     long date = getDate();
 
     latensN = 0;

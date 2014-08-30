@@ -4,12 +4,14 @@ apply plugin: 'jacoco'
 
 dependencies {
     compile files('libs/achartengine-1.1.0.jar')
+    compile "com.google.guava:guava:${project.ext.guavaVersion}"
 
     provided "org.projectlombok:lombok:${project.ext.lombokVersion}"
 
     androidTestCompile "junit:junit:${project.ext.junitVersion}"
     androidTestCompile "org.powermock:powermock-module-junit4:${project.ext.powermockVersion}"
     androidTestCompile "org.powermock:powermock-api-mockito:${project.ext.powermockVersion}"
+    androidTestCompile "org.mockito:mockito-core:${project.ext.mockitoVersion}"
     androidTestCompile "org.robolectric:robolectric:${project.ext.robolectricVersion}"
 }
 
